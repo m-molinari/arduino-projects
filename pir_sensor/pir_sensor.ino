@@ -22,7 +22,6 @@ void setup(){
   delay(50);
 }
 
-}
  
 void loop(){
 
@@ -41,9 +40,8 @@ digitalWrite(LED_OP, millis()/1200%2);
     if(STATE) {
       digitalWrite(LED_PIN, LOW);
       noTone(BUZZER_PIN);
-      state = false;
+      STATE = false;
     }
   }
   delay(10);
 }
-
