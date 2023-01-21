@@ -1,6 +1,6 @@
 #include <LiquidCrystal.h>
 
-LiquidCrystal lcd(2, 3, 4, 5, 6, 7); //Ho usato la 1^ sintassi
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
 
 void setup() 
 {
