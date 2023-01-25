@@ -1,4 +1,4 @@
-#include <SimpleDHT.h> // This lib should be downloaded from Arduino IDE (SimpleDHT)
+#include <SimpleDHT.h>
 #include <LiquidCrystal.h>
 
 SimpleDHT11 dht11;
@@ -17,19 +17,22 @@ void loop(){
   byte h = 0;
   int error = SimpleDHTErrSuccess;
 
-  if (( error = dht11.read(8, &t, &h, NULL )) != SimpleDHTErrSuccess)  {
-    Serial.println("Errore di lettura");
-    delay(500);
+  if (( error = dht11.read(8, &t, &h, NULL )) != SimpleDHTErrSuccess )  {
+    lcd.print("Errore di lettura");
+    delay(1000);
     return;
   }
-
-  lcd.setCursor(12, 0);
-  lcd.print(t);
-  lcd.print ((char) 223);
-  lcd.print ("C");
-  lcd.setCursor(12, 1);
-  lcd.print(h);
-  lcd.print("%");
-  delay(500);  
+  else
+  {
+    lcd.setCursor(12, 0);
+    lcd.print(t);
+    lcd.print ((char) 223);
+    lcd.print ("C");
+    lcd.setCursor(12, 1);
+    lcd.print(h);
+    lcd.print("%");
+    delay(500); 
+  }
+ 
 }
 
