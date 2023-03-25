@@ -6,7 +6,7 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
  
 void setup(){
   lcd.begin(16, 2);
-  lcd.print("Temperatura");
+  lcd.print("Temp");
   lcd.setCursor(0,1);
   lcd.print("Umidita'");
 }
@@ -19,7 +19,7 @@ void loop(){
 
   if (( error = dht11.read(8, &t, &h, NULL )) != SimpleDHTErrSuccess )  {
     lcd.print("Errore di lettura");
-    delay(1000);
+    delay(500);
     return;
   }
   else
@@ -30,6 +30,7 @@ void loop(){
     lcd.print ("C");
     lcd.setCursor(12, 1);
     lcd.print(h);
+    lcd.print (" ");
     lcd.print("%");
     delay(500); 
   }
